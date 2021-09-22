@@ -467,7 +467,7 @@ For more samples and demos, you can visit the samples and demos pages. You can r
 
 [Samples](../IE_DG/Samples_Overview.md)
 
-[Demos](https://docs.openvinotoolkit.org/latest/omz_demos.html)
+[Demos](@ref omz_demos)
 
 For Example – Classification by Usage (examples – it is not exhaustive)
 < Image Missing >
