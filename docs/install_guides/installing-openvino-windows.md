@@ -319,13 +319,6 @@ Now you are ready to get started. To continue, see the following pages:
 * [OpenVINO™ Toolkit Overview](../index.md)
 * [Get Started Guide for Windows](../get_started/get_started_windows.md) to learn the basic OpenVINO™ toolkit workflow and run code samples and demo applications with pre-trained models on different inference devices.
 
-## <a name="uninstall"></a>Uninstall the Intel® Distribution of OpenVINO™ Toolkit
-Follow the steps below to uninstall the Intel® Distribution of OpenVINO™ Toolkit from your system:
-1. Choose the **Apps & Features** option from the Windows* Settings app.
-2. From the list of installed applications, select the Intel® Distribution of OpenVINO™ Toolkit and click **Uninstall**.
-3. Follow the uninstallation wizard instructions.
-4. When uninstallation is complete, click **Finish**. 
-
 ## <a name="Summary"></a>Summary
 
 In this document, you installed the Intel® Distribution of OpenVINO™ toolkit and its dependencies. You also configured the Model Optimizer for one or more frameworks. After the software was installed and configured, you ran two verification scripts. You might have also installed drivers that will let you use a GPU or VPU to infer your models and run the Image Classification Sample application.
