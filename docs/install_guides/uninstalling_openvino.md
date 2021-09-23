@@ -32,3 +32,11 @@ Follow the steps below to uninstall the Intel® Distribution of OpenVINO™ Tool
 2. From the list of installed applications, select the Intel® Distribution of OpenVINO™ Toolkit and click **Uninstall**.
 3. Follow the uninstallation wizard instructions.
 4. When uninstallation is complete, click **Finish**. 
+
+## <a name="uninstall"></a>Uninstall the Intel® Distribution of OpenVINO™ Toolkit for macOS
+
+Follow the steps below to uninstall the Intel® Distribution of OpenVINO™ Toolkit from your system:
+
+1. From the the installation directory (by default, `/opt/intel/openvino_2021`), locate and open `openvino_toolkit_uninstaller.app`.
+2. Follow the uninstallation wizard instructions.
+3. When uninstallation is complete, click **Finish**. 
