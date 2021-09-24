@@ -3,8 +3,9 @@
 ## Overview
 
  Introduction Paragraph
-
- ![](../../IE_DG/img/workflow_steps.png)
+ 
+ < Russia DXA Image Here >
+ ![](../img/your-img-path.png)
 
 ## Toolkit Components
 
