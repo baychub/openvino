@@ -4,7 +4,7 @@
 
  Introduction Paragraph
 
- ![](../img/ie_workflow_steps.png)
+ ![](../img/ie_workflow_steps.png
 
 ## Toolkit Components
 
