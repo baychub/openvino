@@ -23,12 +23,12 @@ auto network = core.ReadNetwork("model.pdmodel");
 
 **Reshape feature:**
 
-OpenVINO™ does not provide a mechanism to specify pre-processing, such as mean values subtraction and reverse input channels, for the Paddle format.
+OpenVINO™ does not provide a pre-processing mechanism, such as mean values subtraction and reverse input channels, for the Paddle format.
 If a Paddle model contains dynamic shapes for input, use the `CNNNetwork::reshape` method for shape specialization.
 
 ## NOTE
 
-* Paddle [`inference model`](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.1/doc/doc_en/inference_en.md) mainly contains two kinds of files `model.pdmodel`(model file) and `model.pdiparams`(params file), which are used for inference.
+* Paddle [`inference model`](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.1/doc/doc_en/inference_en.md) mainly contains two kinds of files, `model.pdmodel`(model file) and `model.pdiparams`(params file), which are used for inference.
 * Supported Paddle models list and how to export these models are described in [Convert a Paddle Model](../MO_DG/prepare_model/convert_model/Convert_Model_From_Paddle.md).
 * For `Normalize` Paddle Models, the input data should be in FP32 format.
-* When reading Paddle models from Paddle format, make sure that `model.pdmodel` and `model.pdiparams` are in the same folder directory.
+* When reading Paddle models from Paddle format, make sure that `model.pdmodel` and `model.pdiparams` are in the same directory.
