@@ -48,27 +48,33 @@ Optimized for these processors:
 
 This guide provides step-by-step instructions on how to install the Intel® Distribution of OpenVINO™ toolkit. Links are provided for each type of compatible hardware including downloads, initialization and configuration steps. The following steps will be covered:
 
-1. <a href="#install-openvino">Install the Intel® Distribution of OpenVINO™ Toolkit</a>
-2. <a href="#install-external-dependencies">Install External Software Dependencies</a>
+1. <a href="#install-external-dependencies">Install External Software Dependencies</a>
+2. <a href="#install-openvino">Install the Intel® Distribution of OpenVINO™ Toolkit</a>
 3. <a href="#set-the-environment-variables">Configure the Environment</a>
-4. Configure inference on non-CPU devices:
-   - <a href="#additional-GPU-steps">Steps for Intel® Processor Graphics (GPU)</a>
-   - <a href="#additional-NCS-steps">Steps for Intel® Neural Compute Stick 2</a>
-   - <a href="#install-VPU">Steps for Intel® Vision Accelerator Design with Intel® Movidius™ VPU</a><br>
+4. <a href="#model-optimizer">Model Optimizer Configuration  (Optional)</a>
+5. <a href="#optional-steps">Configure Inference on non-CPU Devices (Optional)</a>:
+   - <a href="#install-gpu">Steps for Intel® Processor Graphics (GPU)</a>
+   - <a href="#hddl-myriad">Steps for Intel® Vision Accelerator Design with Intel® Movidius™ VPU</a><br>
    After installing your Intel® Movidius™ VPU, you will return to this guide to complete OpenVINO™ installation.<br>   
 5. <a href="#get-started">Start Using the Toolkit</a>
 
-- [Steps to uninstall the Intel® Distribution of OpenVINO™ Toolkit](../uninstalling-openvino.md)
+- [Steps to uninstall the Intel® Distribution of OpenVINO™ Toolkit](../install_guides/uninstalling_openvino.md)
 
 ## Installation Steps
 
-### <a name="Install-Core-Components"></a>Install the Intel® Distribution of OpenVINO™ toolkit Core Components
+### <a name="install-external-dependencies"></a>Step 1: Install External Software Dependencies
+    
+   Install these dependencies:
+   1. [Microsoft Visual Studio* 2019 with MSBuild](http://visualstudio.microsoft.com/downloads/)
+        > **NOTE**: You can choose Community version to download. Use [Microsoft Visual Studio installation guide](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2019) to walk you through the installation. During installation choose `Desktop development with C++` in Worloads tab in installation wizard.
+   
+   2. [CMake 3.14 or higher 64-bit](https://cmake.org/download/)
+        > **NOTE**: You can either use Cmake<version>.msi which is the installation wizard or Cmake<version>.zip where you go into the bin folder and then manually add the path to environmental variables.
+   
+   3. [Python **3.6** - **3.8** 64-bit](https://www.python.org/downloads/windows/)
+        > **IMPORTANT**: As part of this installation, make sure you click the option **[Add Python 3.x to PATH](https://docs.python.org/3/using/windows.html#installation-steps)** to add Python to your `PATH` environment variable.
 
-1. Install these dependencies:
-   - [Microsoft Visual Studio* 2019 with MSBuild](http://visualstudio.microsoft.com/downloads/)
-   - [CMake 3.14 or higher 64-bit](https://cmake.org/download/)
-   - [Python **3.6** - **3.8** 64-bit](https://www.python.org/downloads/windows/)
-   > **IMPORTANT**: As part of this installation, make sure you click the option **[Add Python 3.x to PATH](https://docs.python.org/3/using/windows.html#installation-steps)** to add Python to your `PATH` environment variable.
+### <a name="install-openvino"></a>Step 2: Install the Intel® Distribution of OpenVINO™ toolkit Core Components
 
 2. Download the Intel® Distribution of OpenVINO™ toolkit package file from [Intel® Distribution of OpenVINO™ toolkit for Windows*](https://software.intel.com/en-us/openvino-toolkit/choose-download).
    Select the Intel® Distribution of OpenVINO™ toolkit for Windows* package from the dropdown menu.
@@ -99,7 +105,7 @@ This guide provides step-by-step instructions on how to install the Intel® Dist
 
 The core components are now installed. Continue to the next section to install additional dependencies.
 
-## Step 3: Configure the Environment<a name="set-the-environment-variables"></a>
+### <a name="set-the-environment-variables">Step 3: Configure the Environment
 
 > **NOTE**: If you installed the Intel® Distribution of OpenVINO™ to a non-default install directory, replace `C:\Program Files (x86)\Intel` with that directory in this guide's instructions.
 
@@ -131,7 +137,7 @@ Representation is a pair of files that describe the whole model:
 
 For more information about the Model Optimizer, refer to the [Model Optimizer Developer Guide](../MO_DG/Deep_Learning_Model_Optimizer_DevGuide.md). 
 
-### Model Optimizer Configuration Steps
+### <a name="model-optimizer">Step 4 (Optional): Model Optimizer Configuration
 
 If you see error messages, make sure you installed all dependencies. These steps use a command prompt to make sure you see error messages.
 
@@ -162,24 +168,25 @@ You have now completed all required installation, configuration and build steps 
 
 If you want to use a GPU or VPU, or update your Windows* environment variables, read through the <a href="#optional-steps">Optional Steps</a> section:
 
-- <a href="#Install-GPU">Steps for Intel® Processor Graphics (GPU)</a>
+- <a href="#install-gpu">Steps for Intel® Processor Graphics (GPU)</a>
 - <a href="#hddl-myriad">Steps for Intel® Vision Accelerator Design with Intel® Movidius™ VPUs</a>
 - <a href="#Update-Path">Add CMake* or Python* to your Windows* environment variables</a><br>
 
 Or proceed to the <a href="#get-started">Get Started</a> guide to get started with running code samples and demo applications.
 
-## <a name="optional-steps"></a>Optional Steps
+### <a name="optional-steps"></a>Step 5 (Optional): Configure Inference on non-CPU Devices:
 
-###  <a name="Install-GPU"></a>Optional: Additional Installation Steps for Intel® Processor Graphics (GPU)
+#### <a name="install-gpu"></a>Optional: Additional Installation Steps for Intel® Processor Graphics (GPU)
 
 > **NOTE**: These steps are required only if you want to use an Intel® integrated GPU.
+> **NOTE**: This section will help you check if you require driver installation. Install indicated version or higher.
 
 If your applications offload computation to **Intel® Integrated Graphics**, you must have the Intel Graphics Driver for Windows installed for your hardware. 
 [Download and install the recommended version](https://downloadcenter.intel.com/download/30079/Intel-Graphics-Windows-10-DCH-Drivers). 
 
 To check if you have this driver installed:
 
-1. Type **device manager** in your **Search Windows** box. The **Device Manager** opens.
+1. Type **device manager** in your **Search Windows** box and press Enter. The **Device Manager** opens.
 
 2. Click the drop-down arrow to view the **Display adapters**. You see the adapter that is installed in your computer:
 
@@ -193,7 +200,7 @@ To check if you have this driver installed:
 
 You are done updating your device driver and are ready to use your GPU. Proceed to the <a href="#get-started">Get Started</a> guide to get started with running code samples and demo applications.
 
-### <a name="hddl-myriad"></a> Optional: Additional Installation Steps for the Intel® Vision Accelerator Design with Intel® Movidius™ VPUs
+#### <a name="hddl-myriad"></a> Optional: Additional Installation Steps for the Intel® Vision Accelerator Design with Intel® Movidius™ VPUs
 
 > **NOTE**: These steps are required only if you want to use Intel® Vision Accelerator Design with Intel® Movidius™ VPUs.
 
