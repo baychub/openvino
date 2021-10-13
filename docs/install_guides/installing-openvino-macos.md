@@ -36,8 +36,8 @@ The development and target platforms have the same requirements, but you can sel
 * CMake 3.10 or higher
 	+ [Install](https://cmake.org/download/) (choose "macOS 10.13 or later")
 	+ Add `/Applications/CMake.app/Contents/bin` to path (for default install) 
-* Python 3.6 or 3.7
-	+ [Install](https://www.python.org/downloads/mac-osx/) (choose 3.6.x or 3.7.x, not latest)
+* Python 3.6 or 3.8
+	+ [Install](https://www.python.org/downloads/mac-osx/) (choose 3.6.x or 3.8.x, not latest)
 	+ Add to path
 * Apple Xcode\* Command Line Tools
 	+ In the terminal, run `xcode-select --install` from any directory
@@ -49,15 +49,15 @@ The development and target platforms have the same requirements, but you can sel
 
 ## Overview
 
-This guide provides step-by-step instructions on how to install the Intel® Distribution of OpenVINO™ 2020.1 toolkit for macOS*.
+This guide provides step-by-step instructions on how to install the Intel® Distribution of OpenVINO™ toolkit for macOS*.
 
 The following steps will be covered:
 
 1. <a href="#Install-Core">Install the Intel® Distribution of OpenVINO™ Toolkit</a>
-2. <a href="#set-the-environment-variables">Configure the environ,ent</a>
+2. <a href="#set-the-environment-variables">Configure the environment</a>
 3. <a href="#configure-the-model-optimizer">Configure the Model Optimizer</a>
 4. <a href="#get-started">Get Started with Code Samples and Demo Applications</a>
-- [Steps to uninstall the Intel® Distribution of OpenVINO™ Toolkit](../uninstalling-openvino.md)
+- [Steps to uninstall the Intel® Distribution of OpenVINO™ Toolkit](../install_guides/uninstalling_openvino.md)
 
 ## <a name="Install-Core"></a>Step 1: Install the Intel® Distribution of OpenVINO™ Toolkit Core Components
 
@@ -103,7 +103,7 @@ The disk image is mounted to `/Volumes/m_openvino_toolkit_p_<version>` and autom
 
 > **NOTE**: After you click Finish to close the installation wizard, a new browser window opens with the document you’re reading now (in case you installed without it) and jumps to the section with the next installation steps.
 
-The core components are now installed. If you received a message that you were missing external software dependencies, from the list under Software Requirements at the top of this guide, you need to install them now before continuing to the next section.
+The core components are now installed. If you received a message that you were missing external software dependencies (list available under Software Requirements at the top of this guide), you need to install them now before continuing to the next section.
 
 ## <a name="set-the-environment-variables"></a>Configure the Environment
 
@@ -127,7 +127,7 @@ You must update several environment variables before you can compile and run Ope
 
 5. To verify the change, open a new terminal. You will see `[setupvars.sh] OpenVINO environment initialized`.
 
-   **Optional:** As an option if you don't want to change your shell profile, you can run the following script to temporarily set your environment variables when working with the OpenVINO* toolkit:
+   **Optional:** If you don't want to change your shell profile, you can run the following script to temporarily set your environment variables when working with the OpenVINO* toolkit:
 
    ```sh
    source /opt/intel/openvino_2021/bin/setupvars.sh
@@ -186,7 +186,7 @@ Or proceed to the <a href="#get-started">Get Started</a> guide to start running 
 ## <a name="additional-NCS2-steps"></a>Steps for Intel® Neural Compute Stick 2
 
 These steps are required only if you want to perform inference on Intel® Neural Compute Stick 2
-powered by the Intel® Movidius™ Myriad™ X VPU. See also the
+powered by the Intel® Movidius™ Myriad™ X VPU. For more details, see also the
 [Get Started page for Intel® Neural Compute Stick 2](https://software.intel.com/en-us/neural-compute-stick/get-started).
 
 To perform inference on Intel® Neural Compute Stick 2, the `libusb` library is required. You can build it from the [source code](https://github.com/libusb/libusb) or install using the macOS package manager you prefer: [Homebrew*](https://brew.sh/), [MacPorts*](https://www.macports.org/) or other.
