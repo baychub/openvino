@@ -66,21 +66,21 @@ This guide provides step-by-step instructions on how to install the Intel® Dist
    After installing your Intel® Movidius™ VPU, you will return to this guide to complete OpenVINO™ installation.<br>   
 5. <a href="#get-started">Start Using the Toolkit</a>
 
-- [Steps to uninstall the Intel® Distribution of OpenVINO™ Toolkit](../uninstalling-openvino.md)
+- [Steps to uninstall the Intel® Distribution of OpenVINO™ Toolkit](../install_guides/uninstalling_openvino.md)
 
 ## <a name="install-openvino"></a>Step 1: Install the Intel® Distribution of OpenVINO™ Toolkit Core Components
 
 1. Download the Intel® Distribution of OpenVINO™ toolkit package file from [Intel® Distribution of OpenVINO™ toolkit for Linux*](https://software.intel.com/en-us/openvino-toolkit/choose-download).
    Select the Intel® Distribution of OpenVINO™ toolkit for Linux package from the dropdown menu.
 
-2. Open a command prompt terminal window.
+2. Open a command prompt terminal window. You can use keyboard shortcut: Ctrl+Alt+T
 3. Change directories to where you downloaded the Intel Distribution of
 OpenVINO toolkit for Linux\* package file.<br>
    If you downloaded the package file to the current user's `Downloads` directory:
    ```sh
    cd ~/Downloads/
    ```
-   By default, the file is saved as `l_openvino_toolkit_p_<version>.tgz`.
+   By default, the file is saved as `l_openvino_toolkit_p_<version>.tgz`, e.g., `l_openvino_toolkit_p_2021.4.689.tgz`.
 4. Unpack the .tgz file:
    ```sh
    tar -xvzf l_openvino_toolkit_p_<version>.tgz
@@ -95,7 +95,7 @@ toolkit installed, rename or delete these two directories:
    - `~/inference_engine_samples_build`
    - `~/openvino_models`
 
-6. Choose your installation option and run the related script as root to use either a GUI installation wizard or command line instructions (CLI).<br>    
+6. Choose your installation option and run the related script as root to use either a graphical user interface (GUI) installation wizard or command line instructions (CLI).<br>    
    Screenshots are provided for the GUI, but not for CLI. The following information also applies to CLI and will be helpful to your installation where you will be presented with the same choices and tasks.
    - **Option 1:** GUI Installation Wizard:
    ```sh
@@ -110,33 +110,33 @@ toolkit installed, rename or delete these two directories:
    sudo sed -i 's/decline/accept/g' silent.cfg
    sudo ./install.sh -s silent.cfg
    ```   
-   You can select which OpenVINO components will be installed by modifying the `COMPONENTS` parameter in the `silent.cfg` file. For example, to install only CPU runtime for the Inference Engine, set `COMPONENTS=intel-openvino-ie-rt-cpu__x86_64` in `silent.cfg`. To get a full list of available components for installation, run the `./install.sh --list_components` command from the unpacked OpenVINO™ toolkit package.
+   In option 3 you can select which OpenVINO components will be installed by modifying the `COMPONENTS` parameter in the `silent.cfg` file. For example, to install only CPU runtime for the Inference Engine, set `COMPONENTS=intel-openvino-ie-rt-cpu__x86_64` in `silent.cfg`. To get a full list of available components for installation, run the `./install.sh --list_components` command from the unpacked OpenVINO™ toolkit package.
 
-7. Follow the instructions on your screen. Watch for informational messages such as the following in case you must complete additional steps:
+> **NOTE**: Follow the instructions on your screen. Watch for informational messages such as the following in case you must complete additional steps:
 
    ![](../img/openvino-install-linux-01.png)
 
-8. By default, the Intel® Distribution of OpenVINO™ is installed to the following directory, referred to as `<INSTALL_DIR>` elsewhere in the documentation:
+7. By default, the Intel® Distribution of OpenVINO™ is installed to the following directory:
       * For root or administrator: `/opt/intel/openvino_<version>/`
       * For regular users: `/home/<USER>/intel/openvino_<version>/`
 
    For simplicity, a symbolic link to the latest installation is also created: `/opt/intel/openvino_2021/` or `/home/<USER>/intel/openvino_2021/`
 
-9. **Optional**: You can choose **Customize** to change the installation directory or the components you want to install:
+8. **Optional**: You can choose **Customize** to change the installation directory or the components you want to install:
 > **NOTE**: If there is an OpenVINO™ toolkit version previously installed on your system, the installer will use the same destination directory for the next installation. If you want to install a newer version to a different directory, you need to uninstall the previously installed versions.
    > **NOTE**: The Intel® Media SDK component is always installed in the `/opt/intel/mediasdk` directory regardless of the OpenVINO installation path chosen.
 
-10. The Finish screen indicates that the core components have been installed:
+9. The Finish screen indicates that the core components have been installed:
 
    ![](../img/openvino-install-linux-04.png)
 
-> **NOTE**: After you click Finish to close the installation wizard, a new browser window opens with the document you’re reading now (in case you installed without it) and jumps to the section with the next installation steps.
+> **NOTE**: Once you click Finish to close the installation wizard, a new browser window will open with this documentation. It jumps to the section with your next installation steps.
 
 The core components are now installed. Continue to the next section to install additional dependencies.
 
 ## <a name="install-external-dependencies"></a>Step 2: Install External Software Dependencies
 
-> **NOTE**: If you installed the Intel® Distribution of OpenVINO™ to the non-default install directory, replace `/opt/intel` with the directory in which you installed the software.
+> **NOTE**: If you installed the Intel® Distribution of OpenVINO™ to a non-default directory, replace `/opt/intel` with the directory in which you installed the software.
 
 These dependencies are required for:
 
@@ -144,7 +144,7 @@ These dependencies are required for:
 - Deep Learning Inference Engine
 - Deep Learning Model Optimizer tools
 
-1. Change to the `install_dependencies` directory:
+1. Go to the `install_dependencies` directory:
    ```sh
    cd /opt/intel/openvino_2021/install_dependencies
    ```
@@ -153,7 +153,7 @@ These dependencies are required for:
    sudo -E ./install_openvino_dependencies.sh
    ```
    
-   The dependencies are installed. Continue to the next section to set your environment variables and configure the Model Optimizer utility.
+   Once the dependencies are installed, continue to the next section. You will set your environmental variables and configure the utilities of the Model Optimizer.
 
 ## <a name="set-the-environment-variables"></a>Step 3: Configure the Environment
 
@@ -256,14 +256,14 @@ not install a new driver. If the version of the driver is lower than the current
    Ignore this suggestion and continue.<br>
    You can also find the most recent version of the driver, installation procedure and other information on the [Intel® software for general purpose GPU capabilities](https://dgpu-docs.intel.com/index.html) site.
 
-3. **Optional** Install header files to allow compiling a new code. You can find the header files at [Khronos OpenCL™ API Headers](https://github.com/KhronosGroup/OpenCL-Headers.git).
+3. **Optional** Install header files to allow compilation of new code. You can find the header files at [Khronos OpenCL™ API Headers](https://github.com/KhronosGroup/OpenCL-Headers.git).
 
 You've completed all required configuration steps to perform inference on processor graphics. 
 Proceed to the <a href="#get-started">Get Started</a> guide to start running code samples and demo applications.
 
 ## <a name="additional-NCS-steps"></a>Steps for Intel® Neural Compute Stick 2
 
-These steps are only required if you want to perform inference on Intel® Movidius™ NCS powered by the Intel® Movidius™ Myriad™ 2 VPU or Intel® Neural Compute Stick 2 powered by the Intel® Movidius™ Myriad™ X VPU. See also the [Get Started page for Intel® Neural Compute Stick 2:](https://software.intel.com/en-us/neural-compute-stick/get-started)
+These steps are only required if you want to perform inference on Intel® Movidius™ NCS powered by the Intel® Movidius™ Myriad™ 2 VPU or Intel® Neural Compute Stick 2 powered by the Intel® Movidius™ Myriad™ X VPU. For more details, see the [Get Started page for Intel® Neural Compute Stick 2:](https://software.intel.com/en-us/neural-compute-stick/get-started)
 
 1. Add the current Linux user to the `users` group:
    ```sh
