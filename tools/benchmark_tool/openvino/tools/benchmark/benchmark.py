@@ -149,7 +149,7 @@ class Benchmark:
               elif self.niter:
                   progress_bar.add_progress(1)
 
-        # wait the latest inference executions
+        # wait the latest inference executions and then continue
         status = exe_network.wait()
         if status != StatusCode.OK:
             raise Exception(f"Wait for all requests is failed with status code {status}!")
